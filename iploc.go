@@ -378,13 +378,13 @@ func (i *IpInfo) SetInfo(a []byte) {
 }
 
 func SearchIploc(a []byte) (ip IP) {
-	ip.IpSlice = a
-	ip.IpUint32 = binary.BigEndian.Uint32(ip.IpSlice)
-	t := float64(ip.IpUint32)
+	ip.ipSlice = a
+	ip.ipUint32 = binary.BigEndian.Uint32(ip.ipSlice)
+	t := float64(ip.ipUint32)
 
 	for _, v := range RESERVED_IP_RANGE {
-		if v.ipa <= ip.IpUint32 && v.ipb >= ip.IpUint32 {
-			fmt.Println(ip.IpUint32, v.title)
+		if v.ipa <= ip.ipUint32 && v.ipb >= ip.ipUint32 {
+			fmt.Println(ip.ipUint32, v.title)
 			return
 		}
 	}
